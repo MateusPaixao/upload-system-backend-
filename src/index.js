@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require('express')
 const routes = require('./routes')
 const morgan = require('morgan')
@@ -9,7 +11,7 @@ const app = express()
 /* Database setup
 */
 
-mongoose.connect('mongodb+srv://mateus:GYJbrMSm8iM8zzJN@cluster0-bbk2g.gcp.mongodb.net/upload?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
